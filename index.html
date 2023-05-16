@@ -16,101 +16,98 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-3">
         <a class="navbar-brand text-info title-page" href="#">Arcade Raters</a>
         <img src="./images/download.png" width="30" height="30" alt="8bit Gold Coin">
+        <div class="ms-auto">
             <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-outline-info mr-sm-2" type="button" id="login-button">Login</button>
-                <button class="btn btn-outline-info my-2 my-sm-0" type="button" id="signup-button">Sign Up</button>
-                <div class="dropdown">
-                    <a class="btn btn-outline-info mr-sm-2 dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      Dropdown button
-                    </a>
-                    <div class="dropdown-menu outline-info mr-sm-2" aria-labelledby="dropdownMenu2">
-                      <a class="dropdown-item" id="welcome-tag"></a>
-                      <hr>
-                      <a class="dropdown-item" href="#" id="home-button">Home</a>
-                      <a class="dropdown-item" href="#" id="profile-button">Profile</a>
-                      <a class="dropdown-item" href="#" id="help-button">Help</a>
-                      <a class="dropdown-item" href="#" id="logout-button">Log Out</a>
-                    </div>
-                  </div>
+                <button class="btn btn-outline-info mr-sm-2" type="button" id="loginButton">Login</button>
+                <button class="btn btn-outline-info my-2 my-sm-0" type="button" id="signUpButton">Sign Up</button>
+                </div>
+            </form>
         </div>
-      </nav>
+    </nav>
       <!-- Navbar --> 
 
       <!-- Main Body -->
     <div class="mainBody container-fluid p-3">
 
-    <!-- row -->
-        <div class="">
-
-    <!-- Search container -->
-    <div class="col-6 container-fluid">
-    <div class="card border-info">
-        <!-- btn -->
-        <div class="input-group p-3">
-            <button class="btn btn-info input-group-text" type="button" id="searchBtn">Search Game</button>
-            <input id="cityInput" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-          </div>
-        <!-- btn -->
-
-        <div>
-            
-        </div>
-    </div>
-    </div>
-    <!-- Search container -->
-
-    <!--Game container -->
-<div class="col-6 container-fluid">
-<div class="card border-info">
-    <div class="card-header bg-transparent border-info text-info"> Current Game</div>
-     <div class="card-body text-info">
-        <h5 id="gameName" type="text" class="d-inline card-title">GameName</h5>
-        <p id="description" type="text" class="pt-3 card-text">Description:</p>
-        <p id="rating" type="text" class="card-text">Rating:</p>
-     </div>
-    </div>
-    <div class="pt-3">
-        <div class="card border-info text-info">
-            <div class="card-header bg-transparent border-info text-info">Comments</div>
-            <!-- interior card displayer -->
-            <div class="p-4 card-group row">
-                <!-- cards -->
-                <div id="card1" class="card card-body border-info text-info">
-                    <h5 id="userName" class="d-inline">UserName</h5>
-                    <p id="comment" class="card-text">Comment:</p>
-                    <p id="datePosted" class="card-text">DatePosted</p>
+        <!-- Search container -->
+        <div class="row container-fluid">
+            <div class="col-6 container-fluid">
+                <div class="card border-info mb-3">
+                    <div class="input-group p-3">
+                        <button class="btn btn-info input-group-text" type="button" id="searchBtn">Search Game</button>
+                        <input id="gameInput" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                    </div>
                 </div>
+                    <!-- Search container -->
 
-                <div id="card1" class="card card-body border-info text-info">
-                    <h5 id="userName" class="d-inline">UserName</h5>
-                    <p id="comment" class="card-text">Comment:</p>
-                    <p id="datePosted" class="card-text">DatePosted</p>
-                </div>
-
-                <div id="card1" class="card card-body border-info text-info">
-                    <h5 id="userName" class="d-inline">UserName</h5>
-                    <p id="comment" class="card-text">Comment:</p>
-                    <p id="datePosted" class="card-text">DatePosted</p>
-                </div>
-
-                <div id="card1" class="card card-body border-info text-info">
-                    <h5 id="userName" class="d-inline">UserName</h5>
-                    <p id="comment" class="card-text">Comment:</p>
-                    <p id="datePosted" class="card-text">DatePosted</p>
-                </div>
-
-                <div id="card1" class="card card-body border-info text-info">
-                    <h5 id="userName" class="d-inline">UserName</h5>
-                    <p id="comment" class="card-text">Comment:</p>
-                    <p id="datePosted" class="card-text">DatePosted</p>
+<!-- image -->
+<div class="text-center">
+    <img src="images/SNES-controller.png" alt="SNES Controller" class="img-fluid">
+</div>
+<!-- image -->
+                    <!-- Buttons container -->
+                <div class="card border-info mb-3">
+                    <div class="d-flex justify-content-between p-3">
+                        <button class="btn btn-primary" type="button" id="topRatedBtn">Top Rated Games</button>
+                        <button class="btn btn-danger" type="button" id="randomGameBtn">Random Game</button>
+                        <button class="btn btn-success" type="button" id="prevSearchBtn">Previously Searched Games</button>
+                        <button class="btn btn-warning" type="button" id="devPicksBtn">Developer Picks</button>
+                    </div>
                 </div>
             </div>
-            <!-- interior card displayer -->
-
+        <!-- Buttons container -->
+    
+        <!-- Game container -->
+        <div class="col-6 container-fluid">
+            <div class="card border-info">
+                <div class="card-header bg-transparent border-info text-info">Current Game</div>
+                <div class="card-body text-info">
+                    <h5 id="gameName" type="text" class="d-inline card-title">GameName</h5>
+                    <p id="description" type="text" class="pt-3 card-text">Description:</p>
+                    <p id="rating" type="text" class="card-text">Rating:</p>
+                </div>
+            </div>
+            <div class="pt-3">
+                <div class="card border-info text-info">
+                    <div class="card-header bg-transparent border-info text-info">Reviews</div>
+                    <!-- interior card displayer -->
+                    <div class="p-4 card-group row">
+                        <!-- cards -->
+                        <div id="card1" class="card card-body border-info text-info">
+                            <h5 id="userName" class="d-inline">UserName</h5>
+                            <p id="comment" class="card-text">Comment:</p>
+                            <p id="datePosted" class="card-text">DatePosted</p>
+                        </div>
+    
+                        <div id="card1" class="card card-body border-info text-info">
+                            <h5 id="userName" class="d-inline">UserName</h5>
+                            <p id="comment" class="card-text">Review:</p>
+                            <p id="datePosted" class="card-text">DatePosted</p>
+                        </div>
+    
+                        <div id="card1" class="card card-body border-info text-info">
+                            <h5 id="userName" class="d-inline">UserName</h5>
+                            <p id="comment" class="card-text">Review:</p>
+                            <p id="datePosted" class="card-text">DatePosted</p>
+                        </div>
+    
+                        <div id="card1" class="card card-body border-info text-info">
+                            <h5 id="userName" class="d-inline">UserName</h5>
+                            <p id="comment" class="card-text">Review:</p>
+                            <p id="datePosted" class="card-text">DatePosted</p>
+                        </div>
+    
+                        <div id="card1" class="card card-body border-info text-info">
+                            <h5 id="userName" class="d-inline">UserName</h5>
+                            <p id="comment" class="card-text">Review:</p>
+                            <p id="datePosted" class="card-text">DatePosted</p>
+                        </div>
+                    </div>
+                    <!-- interior card displayer -->
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-    <!-- Game container -->
+        <!-- Game container -->
 
 
 </div>
