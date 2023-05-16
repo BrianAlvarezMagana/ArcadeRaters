@@ -1,20 +1,49 @@
-## User Story
+# ArcadeRater [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-As a user, I want to search for a video game on the Arcade Rater platform,
-view its rating and reviews, and be able to add it to my favorites list.
+# Table of Contents
+* [Usage](#usage)
+* [Description](#usage)
+* [Installation](#installation)
+* [Test](#test)
+* [Contributors](#contributors)
+* [License](#license)
+* [Contacts](#contacts)
+  
+## Usage
+N/A
+  
+## Description
+N/A
+  
+## Installation
+N/A
 
-## Acceptance Criteria
+## Test
+N/A
+  
+## Contributors
+Junnel R. Padilla, Bryan Magana Alvarez, James Hernandez, Abdolkarim Karimi, Yung in Shin
+  
+## License
+This project is licensed under [MIT](https://opensource.org/licenses/MIT)
 
-GIVEN that I am on the Arcade Rater platform,
-WHEN I enter search criteria such as title, genre, developer, or platform in the search bar,
-THEN I should see a list of games that match my search criteria along with their ratings and other relevant information.
-WHEN I click on a game from the search results,
-THEN I should be taken to a page that displays the game's rating and reviews in an easy-to-read format.
-WHEN I read the reviews and ratings,
-THEN I should be able to make an informed decision about whether or not to purchase the game.
-WHEN I want to give my own rating and review,
-THEN I should be able to do so and also edit or delete it later if needed.
-WHEN I want to add a game to my favorites list,
-THEN I should be able to do so by clicking on the "Add to Favorites" button.
-WHEN I want to view my favorite games and their ratings and reviews later,
-THEN I should be able to do so to help me decide whether or not to purchase the game.
+## Questions?
+* Name: Junnel R. Padilla
+* Github: https://github.com/jayP308
+* Email: 
+
+* Name: Bryan Magana Alvarez
+* Github: https://github.com/
+* Email: 
+
+* Name: James Hernandez
+* Github: https://github.com/
+* Email: 
+
+* Name: Abdolkarim Karimi
+* Github: https://github.com/
+* Email: 
+
+* Name: Yung in Shin
+* Github: https://github.com/
+* Email: 
