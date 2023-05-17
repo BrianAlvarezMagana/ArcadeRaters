@@ -1,20 +1,5 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+
+.saveBtn i:hover {
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
 }
-
-#login-button, #signup-button{
-    display: inline-block;
-}
-
-#dropdownMenu2 {
-    display: none;
-    position: relative;
-}
-
-#welcome-tag {
-    pointer-events: none;
-}
-
-
