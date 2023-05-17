@@ -1,3 +1,28 @@
+const apiKey = "e99bccc3b7764f57a2f95f4de8626e55"; // Replace with your API key
+const apiUrl = "https://api.rawg.io/api/games";
+
+// construct the API for the API request
+
+const url = `${apiUrl}?key=${apiKey}`;
+
+// fetch the API
+
+fetch(url)
+  // convert the response to JSON
+  .then(function (response) {
+    return response.json();
+  })
+  // log the JSON response
+  .then(function (json) {
+    console.dir(json);
+  })
+  // catch any errors and log them to the console
+  .catch(function (error) {
+    // log the error to the console
+    console.dir(error);
+  });
+
+// const Rawger = require ('rawger');
 let loginButton = document.getElementById("login-button");
 let loginButton1 = document.getElementById("dropdownMenu2");
 let signupButton = document.getElementById("signup-button");
