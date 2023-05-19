@@ -1,4 +1,29 @@
 let loginButton = document.getElementById("loginButton");
+const apiKey = "e99bccc3b7764f57a2f95f4de8626e55"; // Replace with your API key
+const apiUrl = "https://api.rawg.io/api/games";
+
+// construct the API for the API request
+
+const url = `${apiUrl}?key=${apiKey}`;
+
+// fetch the API
+
+fetch(url)
+  // convert the response to JSON
+  .then(function (response) {
+    return response.json();
+  })
+  // log the JSON response
+  .then(function (json) {
+    console.dir(json);
+  })
+  // catch any errors and log them to the console
+  .catch(function (error) {
+    // log the error to the console
+    console.dir(error);
+  });
+
+// const Rawger = require ('rawger');
 let loginButton1 = document.getElementById("dropdownMenu2");
 let signupButton = document.getElementById("signUpButton");
 let welcomeTag = document.getElementById("welcome-tag");
@@ -6,64 +31,64 @@ let homeButton = document.getElementById("home-button");
 let profileButton = document.getElementById("profile-button");
 let helpButton = document.getElementById("help-button");
 let logoutButton = document.getElementById("logout-button");
-let upperCase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 // Login form when login button is click and modal will pop up
 loginButton.addEventListener("click", () => {
-    Swal.fire({
-        title: `<h3 style="color: #00FFFF;">Login</h3>`,
-        html: `
+  Swal.fire({
+    title: `<h3 style="color: #00FFFF;">Login</h3>`,
+    html: `
         <input type="text" id="login" class="swal2-input" placeholder="Username" style="color: white; border-color: #00FFFF;">
         <input type="password" id="password" class="swal2-input" placeholder="Password" style="color: white; border-color: #00FFFF;">
         <br>
         <input type="checkbox" onclick="showPassword()"><p style="color: white; display: inline-block; margin-left: 10px;">Show Password</p>`,
-        showCancelButton: true,
-        cancelButtontext: `<a style="color: #00FFFF;">Cancel</a>`,
-        confirmButtonColor: '#00FFFF',
-        confirmButtonText: `<a style="color: #202A44;">Sign In</a>`,
-        padding: '3.5rem',
-        background: '#202A44',
-        allowOutsideClick: false,
-        focusConfirm: false,
-        footer: `<a>Made By ArcadeRaters</a>`,
-        preConfirm: () => {
-          const login = Swal.getPopup().querySelector('#login').value
-          const password = Swal.getPopup().querySelector('#password').value
-          if (!login || !password) {
-            Swal.showValidationMessage(`Please Enter Username And Password`)
-          }
-          if (!login && password) {
-            Swal.showValidationMessage(`Please Enter Your Username`)
-          } 
-          if (login && !password) {
-            Swal.showValidationMessage(`Please Enter Your Password`)
-          }
-          return { login: login, password: password }
-          }
-      }).then((result) => {
-        if (result.dismiss === 'cancel') {
-            return;
-        }
-        Swal.fire({
-          title: `<h3 style="color: #00FFFF;"> Logged In Successfully</h3>`,
-          icon: "success",
-          text: ' ',
-          background: '#202A44',
-          showConfirmButton: false,
-          timer: 1500
-         })
-         loginButton.style.display = "none";
-         signupButton.style.display = "none";
-         loginButton1.style.display = "block";
-         loginButton1.innerHTML = result.value.login;
-         welcomeTag.innerHTML = "Welcome," + " " + result.value.login;
-      })
-})
+    showCancelButton: true,
+    cancelButtontext: `<a style="color: #00FFFF;">Cancel</a>`,
+    confirmButtonColor: "#00FFFF",
+    confirmButtonText: `<a style="color: #202A44;">Sign In</a>`,
+    padding: "3.5rem",
+    background: "#202A44",
+    allowOutsideClick: false,
+    focusConfirm: false,
+    footer: `<a>Made By ArcadeRaters</a>`,
+    preConfirm: () => {
+      const login = Swal.getPopup().querySelector("#login").value;
+      const password = Swal.getPopup().querySelector("#password").value;
+      if (!login || !password) {
+        Swal.showValidationMessage(`Please Enter Username And Password`);
+      }
+      if (!login && password) {
+        Swal.showValidationMessage(`Please Enter Your Username`);
+      }
+      if (login && !password) {
+        Swal.showValidationMessage(`Please Enter Your Password`);
+      }
+      return { login: login, password: password };
+    },
+  }).then((result) => {
+    if (result.dismiss === "cancel") {
+      return;
+    }
+    Swal.fire({
+      title: `<h3 style="color: #00FFFF;"> Logged In Successfully</h3>`,
+      icon: "success",
+      text: " ",
+      background: "#202A44",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    loginButton.style.display = "none";
+    signupButton.style.display = "none";
+    loginButton1.style.display = "block";
+    loginButton1.innerHTML = result.value.login;
+    welcomeTag.innerHTML = "Welcome," + " " + result.value.login;
+  });
+});
 
 signupButton.addEventListener("click", () => {
-    Swal.fire({
-        title: `<h3 style="color: #00FFFF;">Sign Up Now!</h3>`,
-        html: `
+  Swal.fire({
+    title: `<h3 style="color: #00FFFF;">Sign Up Now!</h3>`,
+    html: `
         <input type="text" id="first-name" class="swal2-input" placeholder="First Name" style="color: white; border-color: #00FFFF;">
         <input type="text" id="last-name" class="swal2-input" placeholder="Last Name" style="color: white; border-color: #00FFFF;">
         <input type="text" id="username" class="swal2-input" placeholder="Username" style="color: white; border-color: #00FFFF;">
@@ -71,112 +96,116 @@ signupButton.addEventListener("click", () => {
         <input type="password" id="confirm-password" class="swal2-input" placeholder="Confirm Password" style="color: white; border-color: #00FFFF;">
         <br>
         <input type="checkbox" onclick="showPassword()"><p style="color: white; display: inline-block; margin-left: 10px;">Show Password</p>`,
-        showCancelButton: true,
-        cancelButtontext: `<a style="color: #00FFFF;">Cancel</a>`,
-        confirmButtonColor: '#00FFFF',
-        confirmButtonText: `<a style="color: #202A44;">Sign Up</a>`,
-        padding: '3.5rem',
-        background: '#202A44',
-        allowOutsideClick: false,
-        focusConfirm: false,
-        footer: `<a>Made By ArcadeRaters</a>`,
-        preConfirm: () => {
-          const firstName = Swal.getPopup().querySelector('#first-name').value
-          const lastName = Swal.getPopup().querySelector('#last-name').value
-          const username = Swal.getPopup().querySelector('#username').value
-          const password = Swal.getPopup().querySelector('#password').value
-          const confirmPassword = Swal.getPopup().querySelector("#confirm-password").value
-          if (!firstName) {
-            Swal.showValidationMessage(`Please Enter Your First Name`)
-          }
-          if (!lastName) {
-            Swal.showValidationMessage(`Please Enter Your Last Name`)
-          }
-          if (!username) {
-            Swal.showValidationMessage(`Please Choose A Username`)
-          }
-          if (!password) {
-            Swal.showValidationMessage(`Please Choose A Password`)
-          }
-          if (!confirmPassword) {
-            Swal.showValidationMessage(`Please Re-type Password Again`)
-          }
-          if (password != confirmPassword) {
-            Swal.showValidationMessage(`Password does not match, Try Again!`)
-          }
-          return { firstName: firstName, lastName: lastName,  username: username, password: password }
-          }
-      }).then((result) => {
-        if (result.dismiss === 'cancel') {
-            return;
-        }
-        Swal.fire({
-          title: `<h3 style="color: #00FFFF;">Signed Up Successfully</h3>`,
-          icon: "success",
-          text: ' ',
-          background: '#202A44',
-          showConfirmButton: false,
-          timer: 1500
-         })
-         loginButton.style.display = "none";
-         signupButton.style.display = "none";
-         loginButton1.style.display = "block";
-         loginButton1.innerHTML = result.value.username;
-         welcomeTag.innerHTML = "Welcome," + " " + result.value.firstName;
-      })
-})
-
+    showCancelButton: true,
+    cancelButtontext: `<a style="color: #00FFFF;">Cancel</a>`,
+    confirmButtonColor: "#00FFFF",
+    confirmButtonText: `<a style="color: #202A44;">Sign Up</a>`,
+    padding: "3.5rem",
+    background: "#202A44",
+    allowOutsideClick: false,
+    focusConfirm: false,
+    footer: `<a>Made By ArcadeRaters</a>`,
+    preConfirm: () => {
+      const firstName = Swal.getPopup().querySelector("#first-name").value;
+      const lastName = Swal.getPopup().querySelector("#last-name").value;
+      const username = Swal.getPopup().querySelector("#username").value;
+      const password = Swal.getPopup().querySelector("#password").value;
+      const confirmPassword =
+        Swal.getPopup().querySelector("#confirm-password").value;
+      if (!firstName) {
+        Swal.showValidationMessage(`Please Enter Your First Name`);
+      }
+      if (!lastName) {
+        Swal.showValidationMessage(`Please Enter Your Last Name`);
+      }
+      if (!username) {
+        Swal.showValidationMessage(`Please Choose A Username`);
+      }
+      if (!password) {
+        Swal.showValidationMessage(`Please Choose A Password`);
+      }
+      if (!confirmPassword) {
+        Swal.showValidationMessage(`Please Re-type Password Again`);
+      }
+      if (password != confirmPassword) {
+        Swal.showValidationMessage(`Password does not match, Try Again!`);
+      }
+      return {
+        firstName: firstName,
+        lastName: lastName,
+        username: username,
+        password: password,
+      };
+    },
+  }).then((result) => {
+    if (result.dismiss === "cancel") {
+      return;
+    }
+    Swal.fire({
+      title: `<h3 style="color: #00FFFF;">Signed Up Successfully</h3>`,
+      icon: "success",
+      text: " ",
+      background: "#202A44",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    loginButton.style.display = "none";
+    signupButton.style.display = "none";
+    loginButton1.style.display = "block";
+    loginButton1.innerHTML = result.value.username;
+    welcomeTag.innerHTML = "Welcome," + " " + result.value.firstName;
+  });
+});
 
 // will take user to homescreen
 homeButton.addEventListener("click", () => {
-    window.history.forward();
-})
+  window.history.forward();
+});
 
 // page profile for user when click, it wont log out but still go to the next page.
 profileButton.addEventListener("click", () => {
-    window.history.forward();
-})
+  window.history.forward();
+});
 
 // help page if user need guidance and will be taken to a separate page
 helpButton.addEventListener("click", () => {
-    // need code here
-})
+  // need code here
+});
 
 // Logout Button Refreshes the page and go back to home page
 logoutButton.addEventListener("click", () => {
-    const Toast = Swal.mixin({
-        toast: true,
-        position: 'top-end',
-        showConfirmButton: false,
-        timer: 1500,
-        timerProgressBar: true,
-        didOpen: (toast) => {
-          toast.addEventListener('mouseenter', Swal.stopTimer)
-          toast.addEventListener('mouseleave', Swal.resumeTimer)
-        }
-      })
-      
-      Toast.fire({
-        icon: 'success',
-        title: `<h3 style="color: #00FFFF;">Logging Out</h3>`,
-        background: '#202A44',
-      }).then(() => {
-        window.location.reload();
-      })
-})
+  const Toast = Swal.mixin({
+    toast: true,
+    position: "top-end",
+    showConfirmButton: false,
+    timer: 1500,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.addEventListener("mouseenter", Swal.stopTimer);
+      toast.addEventListener("mouseleave", Swal.resumeTimer);
+    },
+  });
+
+  Toast.fire({
+    icon: "success",
+    title: `<h3 style="color: #00FFFF;">Logging Out</h3>`,
+    background: "#202A44",
+  }).then(() => {
+    window.location.reload();
+  });
+});
 
 function showPassword() {
-    var x = document.getElementById("password");
-    var y = document.getElementById("confirm-password");
-    if (x.type === "password") {
-      x.type = "text";
-    } else {
-      x.type = "password";
-    }
-    if (y.type === "password") {
-        y.type = "text";
-      } else {
-        y.type = "password";
-      }
-
+  var x = document.getElementById("password");
+  var y = document.getElementById("confirm-password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
   }
+  if (y.type === "password") {
+    y.type = "text";
+  } else {
+    y.type = "password";
+  }
+}

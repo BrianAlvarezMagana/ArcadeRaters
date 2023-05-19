@@ -3,3 +3,18 @@
     font-size: 20px;
     transition: all 0.3s ease-in-out;
 }
+
+.d-flex {
+    display: flex;
+    align-items: center;
+  }
+  
+  .game-image {
+    margin-right: 20px;
+    width: 298px;
+    height: auto;
+  }
+  
+  .game-details {
+    flex: 1;
+  }
