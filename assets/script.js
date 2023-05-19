@@ -1,3 +1,4 @@
+let loginButton = document.getElementById("loginButton");
 const apiKey = "e99bccc3b7764f57a2f95f4de8626e55"; // Replace with your API key
 const apiUrl = "https://api.rawg.io/api/games";
 
@@ -23,9 +24,8 @@ fetch(url)
   });
 
 // const Rawger = require ('rawger');
-let loginButton = document.getElementById("login-button");
 let loginButton1 = document.getElementById("dropdownMenu2");
-let signupButton = document.getElementById("signup-button");
+let signupButton = document.getElementById("signUpButton");
 let welcomeTag = document.getElementById("welcome-tag");
 let homeButton = document.getElementById("home-button");
 let profileButton = document.getElementById("profile-button");
