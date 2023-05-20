@@ -1,26 +1,95 @@
-const apiKey = "e99bccc3b7764f57a2f95f4de8626e55"; // Replace with your API key
+const apiKey = "e99bccc3b7764f57a2f95f4de8626e55"; 
 const apiUrl = "https://api.rawg.io/api/games";
 
-// construct the API for the API request
+// remove existing list of top rated and random games
+function removeList(target) {
+	 const listContainer = document.getElementById(target)
+  	listContainer.innerHTML = "";
+}
 
-const url = `${apiUrl}?key=${apiKey}`;
+// to show the list of top rated games
+async function topRateGames() {
+    const url = `${apiUrl}?ordering=-rating&key=${apiKey}`;
+  let response = await fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        accept: 'application/json'},}).then(response => response.json()).then(json => {
+          const data = json["results"] // Array List 
+            
+          const listContainer = document.getElementById("topRating-list") // TODO: Add to HTML
+
+          data.forEach((item) => {
+            const listItem = document.createElement("li")
+            listItem.textContent = item.name + " " + item.rating // set the name of listItem
+            
+        
+            listContainer.appendChild(listItem)                                             
+       })})
+}
+
+// to show the list of random games (changes everytime we click)
+async function randomGames() {
+  const url = `${apiUrl}?key=${apiKey}`;
+  let response = await fetch(url, {
+      method: 'GET',
+      mode: 'cors',
+      headers: {
+        accept: 'application/json'},}).then(response => response.json()).then(json => {
+          const shuffledArray = json["results"].sort((a, b) => 0.5 - Math.random());
+          const listContainer = document.getElementById("topRating-list") // TODO: Add to HTML
+
+          shuffledArray.forEach((item) => {
+            const listItem = document.createElement("li")
+            listItem.textContent = item.name + " " + item.rating // set the name of listItem
+            
+        
+            listContainer.appendChild(listItem)                                             
+       })})
+}
+  
+// searchbar
+async function search() {
+  	let gameTitle = document.getElementById('gameInput').value.toLowerCase();
 
 // fetch the API
+	  const url = `${apiUrl}?search=${gameTitle}&key=${apiKey}`;
+    let response = await fetch(url, {
+        method: 'GET',
+        mode: 'cors',
+        headers: {
+          accept: 'application/json'},}).then(response => response.json()).then(json => {const result = json["results"] 
+    
 
-fetch(url)
-  // convert the response to JSON
-  .then(function (response) {
-    return response.json();
+// Array List 
+generateList(result)}
+);
+
+// show the list of searched games
+function generateList(data) {
+    const listContainer = document.getElementById("result-list")
+    console.log(data)
+    data.forEach((item) => {
+      const listItem = document.createElement("li")
+      listItem.textContent = item.name // set the name of listItem
+      listItem.addEventListener("click", () => {
+// Change the current game textfield
+      document.getElementById('gameName').innerHTML = item.name
+      document.getElementById('rating').innerHTML = "Rating: " + item.rating
+      let genres = '' // Action, Else, ..
+      for (let i=0; i < item.genres.length; i++) {
+        genres += item.genres[i].name + ", "
+      }
+      genres = genres.substring(0, genres.length-2)
+      document.getElementById('genre').innerHTML = "Genres: " + genres;
+              removeList("result-list")
+        
   })
-  // log the JSON response
-  .then(function (json) {
-    console.dir(json);
-  })
-  // catch any errors and log them to the console
-  .catch(function (error) {
-    // log the error to the console
-    console.dir(error);
-  });
+        listContainer.appendChild(listItem)                                             
+ })}
+
+}
+
 
 // const Rawger = require ('rawger');
 let loginButton = document.getElementById("login-button");
@@ -32,6 +101,33 @@ let profileButton = document.getElementById("profile-button");
 let helpButton = document.getElementById("help-button");
 let logoutButton = document.getElementById("logout-button");
 let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let searchButton = document.getElementById("searchBtn");
+let topRateButton = document.getElementById("topRatedBtn");
+let randomGameButton = document.getElementById("randomGameBtn");
+
+// event listener for search button
+searchButton.addEventListener("click", () => {
+	// clear the list
+  	removeList("result-list")
+  	search()
+  	
+});
+
+// even listerner for top rated games
+topRateButton.addEventListener("click", () => {
+	// clear the list
+  	removeList("topRating-list")
+  	topRateGames()
+});
+
+// event lister for random games
+
+randomGameButton.addEventListener("click", () => {
+	// clear the list
+  removeList("topRating-list")
+  	randomGames()
+});
+
 
 // Login form when login button is click and modal will pop up
 loginButton.addEventListener("click", () => {
