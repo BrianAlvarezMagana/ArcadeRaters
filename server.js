@@ -1,13 +1,13 @@
 require('dotenv').config();
 const express = require('express');
+const PORT = process.env.DB_PORT;
 const sequelize = require('./config/connection');
 const routes = require('./routes');
 
-const PORT = process.env.DB_PORT;
+
 
 const app = express();
 
-app.use(express.static('public'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

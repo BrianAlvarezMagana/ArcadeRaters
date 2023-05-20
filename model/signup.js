@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const { DataTypes, DataTypes, DataTypes, DataTypes, DataTypes, DataTypes, DataTypes } = require('sequelize/types');
 
 class Signup extends Model {}
 
@@ -38,18 +37,18 @@ Signup.init (
         },
         password: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         },
         conf_password: {
             type: DataTypes.STRING,
-            allowNull: false
+            allowNull: true
         }
     },
 
     {
         sequelize,
         timestamps: true,
-        freezeTableName: true
+        freezeTableName: true,
     }
 );
 
