@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-const apiKey = "e99bccc3b7764f57a2f95f4de8626e55"; 
-=======
 let loginButton = document.getElementById("loginButton");
 const apiKey = "e99bccc3b7764f57a2f95f4de8626e55"; // Replace with your API key
->>>>>>> a64862a66a605d87495b3c99c848fcb2fd98bd3b
 const apiUrl = "https://api.rawg.io/api/games";
 
 // remove existing list of top rated and random games
