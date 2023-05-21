@@ -10,18 +10,18 @@ function removeList(target) {
 // to show the list of top rated games
 async function topRateGames() {
     const url = `${apiUrl}?ordering=-rating&key=${apiKey}`;
-  let response = await fetch(url, {
+    let response = await fetch(url, {
       method: 'GET',
       mode: 'cors',
       headers: {
         accept: 'application/json'},}).then(response => response.json()).then(json => {
           const data = json["results"] // Array List 
             
-          const listContainer = document.getElementById("topRating-list") // TODO: Add to HTML
+          const listContainer = document.getElementById("games-list") // TODO: Add to HTML
 
           data.forEach((item) => {
             const listItem = document.createElement("li")
-            listItem.textContent = item.name + " " + item.rating // set the name of listItem
+            listItem.textContent = item.name + " (" + item.rating + ") " // set the name of listItem
             
         
             listContainer.appendChild(listItem)                                             
@@ -37,34 +37,35 @@ async function randomGames() {
       headers: {
         accept: 'application/json'},}).then(response => response.json()).then(json => {
           const shuffledArray = json["results"].sort((a, b) => 0.5 - Math.random());
-          const listContainer = document.getElementById("topRating-list") // TODO: Add to HTML
+          const listContainer = document.getElementById("games-list") // TODO: Add to HTML
 
           shuffledArray.forEach((item) => {
             const listItem = document.createElement("li")
-            listItem.textContent = item.name + " " + item.rating // set the name of listItem
+            listItem.textContent = item.name + " (" + item.rating + ") " // set the name of listItem
             
         
             listContainer.appendChild(listItem)                                             
        })})
 }
 
-async function randomGames() {
-  const url = `${apiUrl}?key=${apiKey}`;
+async function topMetaGames() {
+  const url = `${apiUrl}?ordering=-metacritic&key=${apiKey}`;
   let response = await fetch(url, {
-      method: 'GET',
-      mode: 'cors',
-      headers: {
-        accept: 'application/json'},}).then(response => response.json()).then(json => {
-          const shuffledArray = json["results"].sort((a, b) => 0.5 - Math.random());
-          const listContainer = document.getElementById("topRating-list") // TODO: Add to HTML
+    method: 'GET',
+    mode: 'cors',
+    headers: {
+      accept: 'application/json'},}).then(response => response.json()).then(json => {
+        const data = json["results"] // Array List 
+          
+        const listContainer = document.getElementById("games-list") // TODO: Add to HTML
 
-          shuffledArray.forEach((item) => {
-            const listItem = document.createElement("li")
-            listItem.textContent = item.name + " " + item.rating // set the name of listItem
-            
-        
-            listContainer.appendChild(listItem)                                             
-       })})
+        data.forEach((item) => {
+          const listItem = document.createElement("li")
+          listItem.textContent = item.name + " (" + item.metacritic + ") " // set the name of listItem
+          
+      
+          listContainer.appendChild(listItem)                                             
+     })})
 }
   
 // searchbar
@@ -124,7 +125,7 @@ let upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let searchButton = document.getElementById("searchBtn");
 let topRateButton = document.getElementById("topRatedBtn");
 let randomGameButton = document.getElementById("randomGameBtn");
-let metaScoreButton = document.getElementById("topMetaBtn")
+let metaScoreButton = document.getElementById("topMetaBtn");
 
 // event listener for search button
 searchButton.addEventListener("click", () => {
@@ -137,22 +138,22 @@ searchButton.addEventListener("click", () => {
 // even listerner for top rated games
 topRateButton.addEventListener("click", () => {
 	// clear the list
-  	removeList("topRating-list")
+  	removeList("games-list")
   	topRateGames()
 });
 
 // event lister for random games
 randomGameButton.addEventListener("click", () => {
 	// clear the list
-    removeList("topRating-list")
+    removeList("games-list")
   	randomGames()
 });
 
 // event listner for metacritic score
 metaScoreButton.addEventListener("click", () => {
 	// clear the list
-  	removeList("topRating-list")
-  	search()
+  	removeList("games-list")
+  	topMetaGames()
   	
 });
 
