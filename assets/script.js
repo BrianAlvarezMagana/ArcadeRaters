@@ -67,7 +67,9 @@ async function topMetaGames() {
           listContainer.appendChild(listItem)                                             
      })})
 }
-  
+
+// Let, Const, Var
+var historyArray = []
 // searchbar
 async function search() {
   	let gameTitle = document.getElementById('gameInput').value.toLowerCase();
@@ -78,8 +80,8 @@ async function search() {
         method: 'GET',
         mode: 'cors',
         headers: {
-          accept: 'application/json'},}).then(response => response.json()).then(json => {const result = json["results"] 
-    
+          accept: 'application/json'},}).then(response =>         response.json()).then(json => {const result = json["results"] 
+        historyArray.push(gameTitle)                                                                                      
 
 // Array List 
 generateList(result)}
@@ -126,6 +128,7 @@ let searchButton = document.getElementById("searchBtn");
 let topRateButton = document.getElementById("topRatedBtn");
 let randomGameButton = document.getElementById("randomGameBtn");
 let metaScoreButton = document.getElementById("topMetaBtn");
+let preSearchButton = document.getElementById('prevSearchBtn');
 
 // event listener for search button
 searchButton.addEventListener("click", () => {
@@ -155,6 +158,22 @@ metaScoreButton.addEventListener("click", () => {
   	removeList("games-list")
   	topMetaGames()
   	
+});
+
+preSearchButton.addEventListener("click", () => {
+	// clear the list
+  	removeList("games-list")
+
+    const listContainer = document.getElementById("games-list") // TODO: Add to HTML
+
+          historyArray.forEach((item, index) => {
+            if (index < historyArray.length-1) {
+              const listItem = document.createElement("li")
+              listItem.textContent = item // set the name of listItem
+              listContainer.appendChild(listItem)   
+            }
+            
+  	})
 });
 
 // Login form when login button is click and modal will pop up
