@@ -18,3 +18,8 @@
   .game-details {
     flex: 1;
   }
+
+  #games-list {
+    margin: 10px;
+    padding: 10%;
+  }

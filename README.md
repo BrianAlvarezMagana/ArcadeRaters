@@ -77,6 +77,23 @@ SOFTWARE.
 
 ## Screenshots
 
+* Desktop view of front page
+<img src="./images/AR front page.png" width="700px">
+
+* Desktop view of sign up function
+<img src="./images/AR sign up.png" width="700px">
+
+* Desktop view of log in function
+<img src="./images/AR login.png" width="700px">
+
+* Desktop view of search result
+<img src="./images/AR search-result.png" width="700px">
+
+* Desktop view of genre and rating
+<img src="./images/AR genre-rating.png" width="700px">
+
+* Desktop view of button function
+<img src="./images/AR button function.png" width="700px">
 
 # Github URL:
 https://github.com/BrianAlvarezMagana/ArcadeRaters
