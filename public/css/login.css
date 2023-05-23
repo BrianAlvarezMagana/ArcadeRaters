@@ -1,0 +1,84 @@
+
+.login-card {
+    margin: 0 0 100px 0;
+    width: 100%;
+    padding: 50px;
+    border: 3px solid #00f7ff;
+    border-radius: var(--border-radius);
+    border-style: double;
+    border-width: thick;
+    background-color: #202A44;
+  }
+  
+  .login-card1 {
+    float: right;
+    text-align: center;
+    margin: 0 0 100px 0;
+    width: 100%;
+    padding: 50px;
+    border: 3px solid #00f7ff;
+    border-radius: var(--border-radius);
+    border-style: double;
+    border-width: thick;
+    background-color: #202A44;
+    color: white;
+  }
+
+  .top-list {
+    font-size: 15px;
+    text-align: center;
+    list-style-type: none;
+  }
+
+  .top-list:hover {
+    font-size: 35px;
+    text-align: center;
+    list-style-type: none;
+    background-color: #202a4456;
+    cursor: pointer;
+  }
+
+  #image-games {
+    width: 50%;
+    border: #00f7ff;
+  }
+
+  #gameName, #gameName1 {
+    font-size: 25px;
+    color: black;
+  }
+
+  #games-list {
+    margin: auto;
+    width: 55%;
+    border-top: double;
+    border-bottom: double;
+  }
+
+  #reviewer {
+    display: inline-block;
+    background:no-repeat;
+  }
+
+  #game-title {
+    padding: 20px;
+    text-decoration: none;
+  }
+
+  .userList {
+    padding: 20px;
+    list-style-type: none;
+    width:100%;
+    font-size: 25px;
+    text-align: center;
+  }
+
+  #card-tile {
+    width: 50%;
+    background-color: #202a444d;
+    margin: auto;
+    margin-bottom: 15px;
+    padding: 20px;
+    color: cyan;
+    border-color: #00f7ff83;
+  }
